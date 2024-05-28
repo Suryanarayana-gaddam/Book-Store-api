@@ -1,0 +1,21 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "mern-client/package.json",
+        "use": "@vercel/static-build",
+        "config": {
+          "distDir": "mern-client/build"
+        }
+      },
+      {
+        "src": "mern-server/**/*.js",
+        "use": "@vercel/node"
+      }
+    ],
+    "routes": [
+      { "src": "/api/(.*)", "dest": "/mern-server/api/$1" },
+      { "src": "/(.*)", "dest": "/mern-client/build/$1" }
+    ]
+  }
+  

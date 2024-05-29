@@ -68,6 +68,8 @@ app.listen(port, () => {
   console.log(`App listening on port ${port}`)
 })
 
+// Export the app for serverless function
+module.exports = app;
 
 
 

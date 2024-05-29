@@ -5,6 +5,7 @@ require('dotenv').config(); // This line loads the .env file into process.env
 var jwt = require('jsonwebtoken');
 //const crypto = require('crypto');
 
+const serverless = require('serverless-http');
 
 const mongoose = require('mongoose');
 const cors = require("cors");
@@ -69,7 +70,7 @@ app.listen(port, () => {
 })
 
 // Export the app for serverless function
-module.exports = app;
+module.exports.handler = serverless(app);
 
 
 

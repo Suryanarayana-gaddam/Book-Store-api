@@ -8,7 +8,7 @@ var jwt = require('jsonwebtoken');
 
 const mongoose = require('mongoose');
 const cors = require("cors");
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 
 
 //middleware

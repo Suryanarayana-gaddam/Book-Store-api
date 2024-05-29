@@ -70,6 +70,7 @@ app.listen(port, () => {
 })
 
 // Export the app for serverless function
+module.exports = app;
 module.exports.handler = serverless(app);
 
 

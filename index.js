@@ -13,7 +13,12 @@ const bcrypt = require('bcryptjs');
 
 
 //middleware
-app.use(cors());
+// app.use(cors());
+
+app.use(cors({
+  origin: 'https://book-store-frontend-891uufp2k-suryanarayana-gaddams-projects.vercel.app'
+}));
+
 app.use(express.json());
 
 //mongoose configaration using mongoose

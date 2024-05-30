@@ -16,7 +16,7 @@ const bcrypt = require('bcryptjs');
 // app.use(cors());
 
 app.use(cors({
-  origin: 'https://book-store-frontend-891uufp2k-suryanarayana-gaddams-projects.vercel.app'
+  origin: 'https://book-store-frontend-henna.vercel.app'
 }));
 
 app.use(express.json());

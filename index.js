@@ -15,9 +15,12 @@ const bcrypt = require('bcryptjs');
 //middleware
 // app.use(cors());
 
-app.use(cors({
-  origin: 'https://book-store-frontend-henna.vercel.app'
-}));
+const corsOptions = {
+  origin: 'https://book-store-frontend-henna.vercel.app', // Allow only this origin
+  optionsSuccessStatus: 200 // Some legacy browsers choke on 204
+};
+
+app.use(cors(corsOptions));
 
 app.use(express.json());
 

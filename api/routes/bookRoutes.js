@@ -10,7 +10,7 @@ router.get('/user/:createrId/get/books', verifyToken, getBooksByCreaterId);
 router.get('/all-books/bycategory', verifyToken, getBooksByCategory);
 router.get('/all-books/searchedbooks', verifyToken, getSearchedBooks);
 router.post('/upload-book', verifyToken, uploadABook);
-router.patch('/book/:id', verifyToken,updateBook);
+router.patch('/book/update/:id', verifyToken,updateBook);
 router.delete('/book/:id', verifyToken,deleteBook);
 
 

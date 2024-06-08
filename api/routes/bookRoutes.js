@@ -5,7 +5,7 @@ const { getBookById, getAllBooks, getBooksByCreaterId, getBooksByCategory, uploa
 const verifyToken = require("../middleware/verifyToken");
 
 router.get('/book/:id', verifyToken, getBookById);
-router.get('/all-books',  getAllBooks);
+router.get('/all-books',verifyToken, getAllBooks);
 router.get('/user/:createrId/get/books', verifyToken, getBooksByCreaterId);
 router.get('/all-books/bycategory', verifyToken, getBooksByCategory);
 router.get('/all-books/searchedbooks', verifyToken, getSearchedBooks);

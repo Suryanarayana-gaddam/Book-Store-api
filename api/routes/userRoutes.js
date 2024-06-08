@@ -5,12 +5,12 @@ const { signUp , getUserByEmail, getUserById, getCartBooks,addToCart, addToWishl
 
 const verifyToken = require("../middleware/verifyToken");
 
-router.get('/userByEmail/:email', getUserByEmail);
+router.get('/userByEmail/:email',verifyToken, getUserByEmail);
 router.get('/:id', verifyToken, getUserById);
-router.get('/admin/all-users',  getUsers);
+router.get('/admin/all-users', verifyToken,  getUsers);
 router.get('/:userId/get/cart', verifyToken,getCartBooks);
 router.get('/:userId/get/wishlist', verifyToken,getBooksInWishlist);
-router.delete('/delete/:id', deleteUser);
+router.delete('/delete/:id', verifyToken,deleteUser);
 router.post('/:userId/wishlist/add', verifyToken,addToWishlist);
 router.post('/:userId/wishlist/remove/:bookId', verifyToken,removeFromWishlist);
 router.post('/:userId/cart/remove/:bookId', verifyToken,removeBookFromCart);

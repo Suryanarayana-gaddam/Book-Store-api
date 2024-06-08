@@ -16,7 +16,7 @@ const bcrypt = require('bcryptjs');
 // app.use(cors());
 
 const corsOptions = {
-  origin: 'https://book-store-frontend-henna.vercel.app', // Allow only this origin
+  origin: 'https://book-store-api-theta.vercel.app/', // Allow only this origin
 };
 
 app.use(cors(corsOptions));

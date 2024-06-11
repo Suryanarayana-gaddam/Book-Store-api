@@ -7,7 +7,7 @@ const verifyToken = require("../middleware/verifyToken");
 
 router.get('/userByEmail/:email',verifyToken, getUserByEmail);
 router.get('/:id', verifyToken, getUserById);
-router.get('/admin/all-users', verifyToken,  getUsers);
+router.get('/admin/all-users',  getUsers);
 router.get('/:userId/get/cart', verifyToken,getCartBooks);
 router.get('/:userId/get/wishlist', verifyToken,getBooksInWishlist);
 router.delete('/delete/:id', verifyToken,deleteUser);

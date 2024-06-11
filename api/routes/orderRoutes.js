@@ -7,7 +7,7 @@ const verifyToken = require('../middleware/verifyToken')
 
 router.post('/:userId/add/orders', verifyToken, orderControllers.uploadOrder);
 router.get('/:userId/get/orders', verifyToken, orderControllers.getOrderById);
-router.get('/get/all-orders', verifyToken, orderControllers.getAllOrders);
+router.get('/get/all-orders', orderControllers.getAllOrders);
 
 
 module.exports = router ;

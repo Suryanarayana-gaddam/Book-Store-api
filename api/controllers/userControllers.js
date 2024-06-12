@@ -290,7 +290,7 @@ const getUserByEmail = async (req, res) => {
     try{
         const userss = await users.find({});
         const usercount = userss.length;
-        res.status(200).json({CountOfUsers : usercount});
+        res.status(200).json({usercount : usercount});
     } catch(error){
         res.status(500).json({message : error.message});
     }

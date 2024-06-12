@@ -60,6 +60,24 @@ const getAllBooks = async(req,res) => {
         res.status(500).json({message : error.message});
     }
 }
+const getAllBooksCount = async(req,res) => {
+    try{
+        const bookss = await books.find({});
+        const booksCount = bookss.length;
+        res.status(200).json({booksCount:booksCount});
+    } catch(error){
+        res.status(500).json({message : error.message});
+    }
+}
+const getBestSeellerBooks = async(req,res) => {
+    try{
+        const bookss = await books.find({});
+        const BestSellerBooks = bookss.slice(45,57)
+        res.status(200).json(BestSellerBooks);
+    } catch(error){
+        res.status(500).json({message : error.message});
+    }
+}
 
 const uploadABook = async(req,res) => {
     try{
@@ -145,5 +163,5 @@ const uploadABook = async(req,res) => {
   }
 
 
-module.exports= { getBookById, getSearchedBooks, getAllBooks , getBooksByCreaterId, uploadABook , updateBook , deleteBook , getBooksByCategory}
+module.exports= { getBookById, getSearchedBooks, getAllBooks, getAllBooksCount, getBestSeellerBooks, getBooksByCreaterId, uploadABook , updateBook , deleteBook , getBooksByCategory}
 

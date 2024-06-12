@@ -43,5 +43,14 @@ const uploadOrder = async(req,res) => {
         res.status(500).json({message : error.message});
     }
 }
+  const getAllOrdersCount = async(req,res) => {
+    try{
+        const ord = await orders.find({});
+        const count = ord.length;
+        res.status(200).json({count : count});
+    } catch(error){
+        res.status(500).json({message : error.message});
+    }
+}
 
-  module.exports = { uploadOrder, getOrderById , getAllOrders}
+  module.exports = { uploadOrder, getOrderById , getAllOrders,getAllOrdersCount}

@@ -286,6 +286,15 @@ const getUserByEmail = async (req, res) => {
         res.status(500).json({message : error.message});
     }
 }
+  const getUsersCount = async(req,res) => {
+    try{
+        const userss = await users.find({});
+        const usercount = userss.length;
+        res.status(200).json({CountOfUsers : usercount});
+    } catch(error){
+        res.status(500).json({message : error.message});
+    }
+}
 
 const deleteUser = async(req,res) => {
   try{
@@ -322,4 +331,4 @@ const updateUser = async(req,res) => {
   }
 }
 
-  module.exports ={ signUp , logIn, getUserByEmail, getUserById, getCartBooks, addToWishlist, addToCart, removeFromWishlist , removeBookFromCart, getBooksInWishlist, checkUserAtLogin, removeAllFromCart , getUsers, deleteUser, updateUser}
+  module.exports ={ signUp , logIn, getUserByEmail, getUserById, getCartBooks, addToWishlist, addToCart, removeFromWishlist , removeBookFromCart, getBooksInWishlist, checkUserAtLogin, removeAllFromCart , getUsers,getUsersCount, deleteUser, updateUser}

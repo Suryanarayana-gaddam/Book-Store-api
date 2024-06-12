@@ -1,13 +1,14 @@
 const express = require('express');
 const router = express.Router();
 
-const { signUp , getUserByEmail, getUserById, getCartBooks,addToCart, addToWishlist, removeFromWishlist, removeBookFromCart, getBooksInWishlist, checkUserAtLogin, removeAllFromCart, getUsers, deleteUser, updateUser } = require("../controllers/userControllers");
+const { signUp , getUserByEmail, getUserById, getCartBooks,addToCart, addToWishlist, removeFromWishlist, removeBookFromCart, getBooksInWishlist, checkUserAtLogin, removeAllFromCart, getUsers, deleteUser, updateUser, getUsersCount } = require("../controllers/userControllers");
 
 const verifyToken = require("../middleware/verifyToken");
 
 router.get('/userByEmail/:email',verifyToken, getUserByEmail);
 router.get('/:id', verifyToken, getUserById);
-router.get('/admin/all-users',  getUsers);
+router.get('/admin/all-users',verifyToken,  getUsers);
+router.get('/admin/all-users-count', getUsersCount);
 router.get('/:userId/get/cart', verifyToken,getCartBooks);
 router.get('/:userId/get/wishlist', verifyToken,getBooksInWishlist);
 router.delete('/delete/:id', verifyToken,deleteUser);

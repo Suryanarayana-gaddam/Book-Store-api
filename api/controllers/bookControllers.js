@@ -81,7 +81,7 @@ const getBestSeellerBooks = async(req,res) => {
 const getOtherBooks = async(req,res) => {
     try{
         const bookss = await books.find({});
-        const OtherBooks = bookss.slice(57,70).reverse();
+        const OtherBooks = bookss.slice(23,35).reverse();
         res.status(200).json(OtherBooks);
     } catch(error){
         res.status(500).json({message : error.message});

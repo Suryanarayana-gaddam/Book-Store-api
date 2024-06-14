@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const { getBookById, getAllBooks, getBooksByCreaterId, getBooksByCategory, uploadABook, updateBook, deleteBook, getSearchedBooks, getBestSeellerBooks, getAllBooksCount, getOtherBooks} = require("../controllers/bookControllers")
+const { getBookById, getAllBooks, getBooksByCreaterId, getBooksByCategory, uploadABook, updateBook, deleteBook, getSearchedBooks, getBestSeellerBooks, getAllBooksCount, getOtherBooks, getBestSellerBooks} = require("../controllers/bookControllers")
 const verifyToken = require("../middleware/verifyToken");
 
 router.get('/book/:id', verifyToken, getBookById);

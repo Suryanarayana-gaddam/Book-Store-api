@@ -69,10 +69,10 @@ const getAllBooksCount = async(req,res) => {
         res.status(500).json({message : error.message});
     }
 }
-const getBestSeellerBooks = async(req,res) => {
+const getBestSellerBooks = async(req,res) => {
     try{
         const bookss = await books.find({});
-        const BestSellerBooks = bookss.slice(45,57).reverse();
+        const BestSellerBooks = bookss.slice(35,48).reverse();
         res.status(200).json(BestSellerBooks);
     } catch(error){
         res.status(500).json({message : error.message});
@@ -172,5 +172,5 @@ const uploadABook = async(req,res) => {
   }
 
 
-module.exports= { getBookById, getSearchedBooks, getAllBooks, getAllBooksCount, getBestSeellerBooks, getOtherBooks, getBooksByCreaterId, uploadABook , updateBook , deleteBook , getBooksByCategory}
+module.exports= { getBookById, getSearchedBooks, getAllBooks, getAllBooksCount, getBestSellerBooks, getOtherBooks, getBooksByCreaterId, uploadABook , updateBook , deleteBook , getBooksByCategory}
 

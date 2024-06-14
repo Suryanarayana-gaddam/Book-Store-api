@@ -7,7 +7,7 @@ const verifyToken = require("../middleware/verifyToken");
 router.get('/book/:id', verifyToken, getBookById);
 router.get('/all-books',verifyToken, getAllBooks);
 router.get('/all-books-count', getAllBooksCount);
-router.get('/all-books/bestSellerBooks',  getBestSeellerBooks);
+router.get('/all-books/bestSellerBooks',  getBestSellerBooks);
 router.get('/all-books/other-books', getOtherBooks);
 router.get('/user/:createrId/get/books', verifyToken, getBooksByCreaterId);
 router.get('/all-books/bycategory', verifyToken, getBooksByCategory);

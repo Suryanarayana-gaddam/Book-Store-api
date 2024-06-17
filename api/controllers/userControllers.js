@@ -94,6 +94,7 @@ const getUserByEmail = async (req, res) => {
         email,
         hashedPassword,
         username,
+        profilePic,
         role,
         wishlist: [],
         cart: [],
@@ -101,7 +102,7 @@ const getUserByEmail = async (req, res) => {
         uploadedbooks: []
       });
   
-      //res.status(200).json(result);  Sending the result as JSON response
+      res.status(200).json(result);  //Sending the result as JSON response
     } catch (error) {
       console.error("Error in sign-up:", error);
       res.status(500).json({ error: "Internal server error" });

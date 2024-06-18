@@ -19,7 +19,7 @@ router.post('/:userId/cart/removeAll', verifyToken,removeAllFromCart);
 router.post('/:userId/cart/add', verifyToken,addToCart);
 router.post('/sign-up', signUp);
 router.post('/login',checkUserAtLogin);
-router.patch("/user/:id",updateUser);
+router.patch("/user/:id",verifyToken,updateUser);
 
 
 

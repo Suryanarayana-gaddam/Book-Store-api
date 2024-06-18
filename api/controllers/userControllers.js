@@ -86,7 +86,7 @@ const getUserByEmail = async (req, res) => {
   }
 
   const signUp = async (req, res) => {
-    const { email, password, username } = req.body;
+    const { email, password, username,profilePic } = req.body;
     const hashedPassword = await bcrypt.hash(password, 10);
     const role = "user";
     try {

@@ -155,7 +155,7 @@ const getUserByEmail = async (req, res) => {
   
     try {
       // Find the user by userId and update the wishlist array
-      const updatedUser = await users.UpdateOne(
+      const updatedUser = await users.findOneAndUpdate(
         { _id: new ObjectId(userId) },
         { $pull: { wishlist: { _id : bookId } } }, // Pull book with matching ID
         {new : true}

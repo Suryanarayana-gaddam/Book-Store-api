@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const port = process.env.PORT || 5000 || 5001
+const port = process.env.PORT || 5000 
 require('dotenv').config(); // This line loads the .env file into process.env
 var jwt = require('jsonwebtoken');
 //const crypto = require('crypto');

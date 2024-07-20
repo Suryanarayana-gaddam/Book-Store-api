@@ -66,8 +66,6 @@ const getUserByEmail = async (req, res) => {
   const addToCart = async (req, res) => {
     const userId = req.params.userId;
     const  book = req.body;
-    //console.log('User Id :' ,userId);
-    //console.log("Recieved book :",book);  
     try {
       // Find the user by userId and update the cart array
       const updatedUser = await users.findOneAndUpdate(

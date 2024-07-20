@@ -5,7 +5,7 @@ const { signUp , getUserByEmail, getUserById, getCartBooks,addToCart, addToWishl
 
 const verifyToken = require("../middleware/verifyToken");
 
-router.get('/userByEmail/:email',verifyToken, getUserByEmail);
+router.get('/userByEmail/:email', getUserByEmail);
 router.get('/:id', verifyToken, getUserById);
 router.get('/admin/all-users',verifyToken, getUsers);
 router.get('/admin/all-users-count', getUsersCount);

@@ -1,13 +1,12 @@
 {
-  "name": "backend",
+  "name": "Book-Store-API",
   "version": "1.0.0",
-  "description": "",
+  "description": "It was the backend for the Open Books Web Online Book Store Application",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js"
   },
-  "author": "",
+  "author": "Surya Narayana Gaddam",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",

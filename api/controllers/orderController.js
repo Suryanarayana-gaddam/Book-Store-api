@@ -47,7 +47,7 @@ const uploadOrder = async(req,res) => {
     try{
         const ord = await orders.find({});
         const ordersCount = ord.length;
-        res.status(200).json({ordersCount : ordersCount});
+        res.status(200).json({count : ordersCount});
     } catch(error){
         res.status(500).json({message : error.message});
     }

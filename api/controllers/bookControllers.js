@@ -64,7 +64,7 @@ const getAllBooksCount = async(req,res) => {
     try{
         const bookss = await books.find({});
         const booksCount = bookss.length;
-        res.status(200).json({booksCount:booksCount});
+        res.status(200).json({count:booksCount});
     } catch(error){
         res.status(500).json({message : error.message});
     }

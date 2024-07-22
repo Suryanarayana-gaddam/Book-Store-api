@@ -85,6 +85,11 @@ const getUserByEmail = async (req, res) => {
 
   const signUp = async (req, res) => {
     const { email, password, username,profilePic } = req.body;
+    const existingUser = users.findOne({email})
+    console.log("existingUser:",existingUser);
+    if(existingUser){
+      return res.status(403).json(existingUser);
+    }
     const hashedPassword = await bcrypt.hash(password, 10);
     const role = "user";
     try {
@@ -288,7 +293,7 @@ const getUserByEmail = async (req, res) => {
     try{
         const userss = await users.find({});
         const usercount = userss.length;
-        res.status(200).json({usercount : usercount});
+        res.status(200).json({count : usercount});
     } catch(error){
         res.status(500).json({message : error.message});
     }

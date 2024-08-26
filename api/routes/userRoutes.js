@@ -17,7 +17,7 @@ router.post('/:userId/wishlist/remove/:bookId', verifyToken,removeFromWishlist);
 router.post('/:userId/cart/remove/:bookId', verifyToken,removeBookFromCart);
 router.post('/:userId/cart/removeAll', verifyToken,removeAllFromCart);
 router.post('/:userId/cart/add', verifyToken,addToCart);
-router.post('/sign-up', signUp);
+router.post('/sign-up',signUp);
 router.post('/login',checkUserAtLogin);
 router.patch("/user/:id",verifyToken,updateUser);
 

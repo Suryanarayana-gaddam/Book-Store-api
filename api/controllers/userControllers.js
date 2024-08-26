@@ -86,14 +86,14 @@ const getUserByEmail = async (req, res) => {
 
   const signUp = async (req, res) => {
     const { email, password, username,profilePic } = req.body;
-    const existingUser = users.findOne({email})
-    console.log("existingUser:",existingUser);
-    if(existingUser){
-      return res.status(403).json(existingUser);
-    }
-    const hashedPassword = await bcrypt.hash(password, 10);
-    const role = "user";
     try {
+      const existingUser = await users.findOne({"email" : email})
+      if(existingUser){
+        console.log("existingUsers:",email,existingUser);
+        return res.status(403).json({message : `user exists :,${existingUser}`});
+      }
+      const hashedPassword = await bcrypt.hash(password, 10);
+      const role = "user";
       const result = await users.create({
         email,
         hashedPassword,
@@ -105,7 +105,7 @@ const getUserByEmail = async (req, res) => {
         orders: [],
         uploadedbooks: []
       });
-  
+    
       res.status(200).json(result);  //Sending the result as JSON response
     } catch (error) {
       console.error("Error in sign-up:", error);

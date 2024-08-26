@@ -6,12 +6,13 @@ const users = require("../models/users");
 const getUserByEmail = async (req, res) => {
     
     try {
-        const email = req.params.email;
+      const email = req.params.email;
+      console.log("email :",email)
         const  query = {email : email }
         // Find the user by email in the userdata collection
          const user = await users.findOne(query);
-
-      if (!user) {
+         console.log("user :",user)
+         if (!user) {
         // If the user is not found, return a 404 status code
         return res.status(404).json({ error: "User not found" });
       }

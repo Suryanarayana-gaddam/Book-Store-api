@@ -4,7 +4,7 @@
   "description": "It was the backend for the Open Books Web Online Book Store Application",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "nodemon index.js"
   },
   "author": "Surya Narayana Gaddam",
   "license": "ISC",

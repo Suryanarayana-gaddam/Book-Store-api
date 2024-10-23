@@ -100,6 +100,7 @@ const getUserByEmail = async (req, res) => {
         username,
         profilePic,
         role,
+        createdAt : Date.now(),
         wishlist: [],
         cart: [],
         orders: [],

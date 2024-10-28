@@ -21,6 +21,12 @@ const userSchema = new Schema({
     type: String,
     required: true
   },
+  userDetails: {
+    type: String,
+  },
+  googleSignIn: {
+    type: String,
+  },
   createdAt: {
     type: Date ,
     default : Date.now(),

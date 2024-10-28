@@ -85,7 +85,7 @@ const getUserByEmail = async (req, res) => {
   }
 
   const signUp = async (req, res) => {
-    const { email, password, username,profilePic } = req.body;
+    const { email, password, username,profilePic, userDetails,googleSignIn } = req.body;
     try {
       const existingUser = await users.findOne({"email" : email})
       if(existingUser){
@@ -100,6 +100,8 @@ const getUserByEmail = async (req, res) => {
         username,
         profilePic,
         role,
+        userDetails,
+        googleSignIn,
         createdAt : Date.now(),
         wishlist: [],
         cart: [],

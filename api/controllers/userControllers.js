@@ -121,7 +121,7 @@ const getUserByEmail = async (req, res) => {
       const result = await users.create({email,hashedPassword,username,wishlist: [],
         cart: [],
         orders: [],
-        uploadedbooks: []});
+        uploadedbooks: []});  
       res.send(result);
     } catch (error) {
       console.error("Error in sign-up:", error);

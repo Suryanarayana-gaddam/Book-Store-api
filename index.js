@@ -11,7 +11,17 @@ const cors = require("cors");
 const bcrypt = require('bcryptjs');
 
 const corsOptions = {
-  origin: ["http://localhost:5173","http://localhost:5174", "https://surya-openbooks.netlify.app", "https://surya-book-store-api.netlify.app/",'https://book-store-frontend-henna.vercel.app', 'https://book-store-api-theta.vercel.app/']// Allows only these origins
+  origin: [
+    "http://localhost:5173",
+    "http://localhost:5174",
+    "https://surya-openbooks.netlify.app",
+    "https://surya-book-store-api.netlify.app",
+    "https://book-store-frontend-henna.vercel.app",
+    "https://book-store-api-theta.vercel.app",
+    "https://surya-openbooks.vercel.app/"
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE","PATCH"], 
+  allowedHeaders: ["Content-Type", "Authorization"],
 };
 app.use(cors(corsOptions));
 

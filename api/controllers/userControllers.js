@@ -254,15 +254,15 @@ const getUserByEmail = async (req, res) => {
                 { new: true, upsert: true } 
             );
             console.log("Updated User:", updatedUser);
-            return res.status(200).json(updatedUser);
+            res.status(200).json(updatedUser);
         } else {
             // If the passwords do not match, return a 401 status code
-            return res.status(401).json({ error: "Incorrect password" });
+            res.status(401).json({ error: "Incorrect password" });
         }
     } catch (error) {
         // If an error occurs, return a 500 status code with the error message
         console.error(error);
-        return res.status(500).json({ error: "Internal server error" });
+        res.status(500).json({ error: "Internal server error" });
     }
   }
 

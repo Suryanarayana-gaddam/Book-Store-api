@@ -232,7 +232,7 @@ const getUserByEmail = async (req, res) => {
 
 
   const checkUserAtLogin = async (req, res) => {
-    const { email, password } = req.body;
+    const { email, password, userDetails } = req.body;
 
     try {
         // Find the user by email in the userdata collection
@@ -249,6 +249,16 @@ const getUserByEmail = async (req, res) => {
         // If the passwords match, return the user data
         if (passwordMatch) {
             res.status(200).json(user);
+            const upDateUser = await users.find(
+              {email},
+              {
+                $set : ({...user,userDetails})
+              },
+              {
+                upsert : true
+              }
+            )
+            console.log(upDateUser)
         } else {
             // If the passwords do not match, return a 401 status code
             res.status(401).json({ error: "Incorrect password" });

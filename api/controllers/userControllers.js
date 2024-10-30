@@ -253,7 +253,6 @@ const getUserByEmail = async (req, res) => {
                 { $set: { ...user, userDetails } }, 
                 { new: true, upsert: true } 
             );
-
             console.log("Updated User:", updatedUser);
             return res.status(200).json(updatedUser);
         } else {

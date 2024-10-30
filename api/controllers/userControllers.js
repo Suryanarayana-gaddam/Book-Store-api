@@ -248,19 +248,14 @@ const getUserByEmail = async (req, res) => {
 
         // If the passwords match, return the user data
         if (passwordMatch) {
-          const outputUser = res.json(user)
-          console.log("outputUser :",outputUser)
-          const upDateUser = await users.find(
-            {email},
-            {
-              $set : ({...outputUser,userDetails})
-            },
-            {
-              upsert : true
-            }
-          )
-          console.log("upDateUser :",upDateUser)
-          return res.status(200).json(user);
+          const updatedUser = await users.findOneAndUpdate(
+                { email },
+                { $set: { ...user, userDetails } }, 
+                { new: true, upsert: true } 
+            );
+
+            console.log("Updated User:", updatedUser);
+            return res.status(200).json(updatedUser);
         } else {
             // If the passwords do not match, return a 401 status code
             res.status(401).json({ error: "Incorrect password" });

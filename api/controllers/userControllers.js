@@ -250,19 +250,19 @@ const getUserByEmail = async (req, res) => {
         if (passwordMatch) {
           const updatedUser = await users.findOneAndUpdate(
                 { email },
-                { $set: {userDetails : userDetails } }, 
+                { $set: {userDetails : userDetails }}, 
                 { new: true, upsert: true } 
             );
             console.log("Updated User:", updatedUser);
-            res.status(200).json(updatedUser);
+            return res.status(200).json(updatedUser);
         } else {
             // If the passwords do not match, return a 401 status code
-            res.status(401).json({ error: "Incorrect password" });
+            return res.status(401).json({ error: "Incorrect password" });
         }
     } catch (error) {
         // If an error occurs, return a 500 status code with the error message
         console.error(error);
-        res.status(500).json({ error: "Internal server error" });
+        return res.status(500).json({ error: `Internal server error : ${error}` });
     }
   }
 

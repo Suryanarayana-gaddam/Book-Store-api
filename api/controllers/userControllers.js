@@ -102,7 +102,6 @@ const getUserByEmail = async (req, res) => {
         role,
         userDetails,
         googleSignIn,
-        createdAt : Date.now(),
         wishlist: [],
         cart: [],
         orders: [],
@@ -248,10 +247,9 @@ const getUserByEmail = async (req, res) => {
 
         // If the passwords match, return the user data
         if (passwordMatch) {
-          const usersDetails = JSON.stringify(userDetails)
           const updatedUser = await users.findOneAndUpdate(
                 { email },
-                { $set: {userDetails : usersDetails }}, 
+                { $push: {userDetails : userDetails }}, 
                 { new: true, upsert: true } 
             );
             console.log("Updated User:", updatedUser);

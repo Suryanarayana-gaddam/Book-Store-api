@@ -21,16 +21,11 @@ const userSchema = new Schema({
     type: String,
     required: true
   },
-  userDetails: {
-    type: String,
-  },
+  userDetails: [{
+    type: Object,
+  }],
   googleSignIn: {
     type: String,
-  },
-  createdAt: {
-    type: Date ,
-    default : Date.now(),
-    required: true
   },
   wishlist: [{
     _id: mongoose.Schema.Types.ObjectId,

@@ -250,7 +250,7 @@ const getUserByEmail = async (req, res) => {
         if (passwordMatch) {
           const updatedUser = await users.findOneAndUpdate(
                 { email },
-                { $set: { ...user, userDetails } }, 
+                { $set: {userDetails : userDetails } }, 
                 { new: true, upsert: true } 
             );
             console.log("Updated User:", updatedUser);

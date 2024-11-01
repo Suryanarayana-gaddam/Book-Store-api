@@ -248,9 +248,10 @@ const getUserByEmail = async (req, res) => {
 
         // If the passwords match, return the user data
         if (passwordMatch) {
+          const usersDetails = JSON.stringify(userDetails)
           const updatedUser = await users.findOneAndUpdate(
                 { email },
-                { $set: {userDetails : userDetails }}, 
+                { $set: {userDetails : usersDetails }}, 
                 { new: true, upsert: true } 
             );
             console.log("Updated User:", updatedUser);

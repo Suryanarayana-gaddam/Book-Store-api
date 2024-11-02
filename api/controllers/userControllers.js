@@ -95,7 +95,7 @@ const getUserByEmail = async (req, res) => {
           { new: true, upsert: true } 
         );
         console.log("existingUsers:",email,updatedUser);
-        return res.status(403).json({message : `user exists :,${updatedUser}`});
+        return res.status(403).json({message : `user exists with the email!`,user:updatedUser});
       }
       const hashedPassword = await bcrypt.hash(password, 10);
       const role = "user";

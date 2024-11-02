@@ -89,8 +89,13 @@ const getUserByEmail = async (req, res) => {
     try {
       const existingUser = await users.findOne({"email" : email})
       if(existingUser){
-        console.log("existingUsers:",email,existingUser);
-        return res.status(403).json({message : `user exists :,${existingUser}`});
+        const updatedUser = await users.findOneAndUpdate(
+          { email },
+          { $push: {userDetails : userDetails }}, 
+          { new: true, upsert: true } 
+        );
+        console.log("existingUsers:",email,updatedUser);
+        return res.status(403).json({message : `user exists :,${updatedUser}`});
       }
       const hashedPassword = await bcrypt.hash(password, 10);
       const role = "user";

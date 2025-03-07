@@ -21,9 +21,6 @@ const userSchema = new Schema({
     type: String,
     required: true
   },
-  userDetails: [{
-    type: Object,
-  }],
   googleSignIn: {
     type: String,
   },
@@ -55,7 +52,11 @@ const userSchema = new Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'UploadBook'
   }]
-});
+},
+{
+  timestamps: true
+}
+);
 
 const users = mongoose.model('User', userSchema);
 

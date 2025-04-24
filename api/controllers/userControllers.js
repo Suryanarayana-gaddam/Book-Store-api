@@ -85,13 +85,13 @@ const getUserByEmail = async (req, res) => {
   }
 
   const signUp = async (req, res) => {
-    const { email, password, username,profilePic, userDetails,googleSignIn } = req.body;
+    const { email, password, username,profilePic,googleSignIn } = req.body;
     try {
       const existingUser = await users.findOne({"email" : email})
       if(existingUser){
         const updatedUser = await users.findOneAndUpdate(
           { email },
-          { $push: {userDetails : userDetails }}, 
+          { $set: {email : email }}, 
           { new: true, upsert: true } 
         );
         console.log("existingUsers:",email,updatedUser);
@@ -105,7 +105,6 @@ const getUserByEmail = async (req, res) => {
         username,
         profilePic,
         role,
-        userDetails,
         googleSignIn,
         wishlist: [],
         cart: [],
@@ -236,7 +235,7 @@ const getUserByEmail = async (req, res) => {
 
 
   const checkUserAtLogin = async (req, res) => {
-    const { email, password, userDetails } = req.body;
+    const { email, password } = req.body;
 
     try {
         // Find the user by email in the userdata collection
@@ -254,7 +253,7 @@ const getUserByEmail = async (req, res) => {
         if (passwordMatch) {
           const updatedUser = await users.findOneAndUpdate(
                 { email },
-                { $push: {userDetails : userDetails }}, 
+                { $set: {email : email }}, 
                 { new: true, upsert: true } 
             );
             console.log("Updated User:", updatedUser);

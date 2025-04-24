@@ -11,7 +11,7 @@ const getUserByEmail = async (req, res) => {
         const  query = {email : email }
         // Find the user by email in the userdata collection
          const user = await users.findOne(query);
-         console.log("user :",user)
+        //  console.log("user :",user)
          if (!user) {
         // If the user is not found, return a 404 status code
         return res.status(404).json({ error: "User not found" });
